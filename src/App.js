@@ -20,7 +20,9 @@ export default function App() {
                                             key={article.title} 
                                             title={article.title} 
                                             urlToImage={article.urlToImage} 
-                                            snippet={article.snippet} 
+                                            snippet={article.snippet}
+                                            timeToRead={article.timeToRead}
+                                            url={article.url}
                                         /> 
                             )
 
