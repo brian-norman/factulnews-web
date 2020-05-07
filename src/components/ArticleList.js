@@ -11,7 +11,7 @@ export default function ArticleList(props) {
       .then(res => res.articles)
       .then(res => setArticles(res))
       .catch(error => alert(error))
-  }, [])
+  }, [props.category])
 
   const articleCards = articles
                         .map(article => <ArticleCard 
