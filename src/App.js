@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './App.css'
-
-import ArticleCard from './components/ArticleCard'
+import ArticleList from './components/ArticleList'
+import Tabs from 'react-bootstrap/Tabs'
+import Tab from 'react-bootstrap/Tab'
 
 
 export default function App() {
-  const [articles, setArticles] = useState([])
-
-  useEffect(() => {
-    fetch("https://factfulnews.herokuapp.com/general")
-      .then(res => res.json())
-      .then(res => res.articles)
-      .then(res => setArticles(res))
-      .catch(error => alert(error))
-  }, [])
-
-  const articleCards = articles
-                        .map(article => <ArticleCard 
-                                            key={article.title} 
-                                            title={article.title} 
-                                            urlToImage={article.urlToImage} 
-                                            snippet={article.snippet}
-                                            timeToRead={article.timeToRead}
-                                            url={article.url}
-                                        /> 
-                            )
-
   return (
-    <div>
-      {articleCards}
-    </div>
+    <Tabs defaultActiveKey="general" id="uncontrolled-tab-example">
+      <Tab eventKey="general" title="General">
+        <ArticleList category="general" />
+      </Tab>
+      <Tab eventKey="business" title="Business">
+        <ArticleList category="business" />
+      </Tab>
+      <Tab eventKey="entertainment" title="Entertainment">
+        <ArticleList category="entertainment" />
+      </Tab>
+      <Tab eventKey="health" title="Health">
+        <ArticleList category="health" />
+      </Tab>
+      <Tab eventKey="science" title="Science">
+        <ArticleList category="science" />
+      </Tab>
+      <Tab eventKey="sports" title="Sports">
+        <ArticleList category="sports" />
+      </Tab>
+      <Tab eventKey="technology" title="Technology">
+        <ArticleList category="technology" />
+      </Tab>
+    </Tabs>
   )
 }

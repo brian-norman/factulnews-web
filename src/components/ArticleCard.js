@@ -21,6 +21,7 @@ export default function ArticleCard(props) {
                         null}
                 <Button
                     href={props.url}
+                    target="_blank"
                     variant="primary" 
                     style={{position: "absolute", right: "0.5rem", bottom: "0.5rem"}}
                 >
